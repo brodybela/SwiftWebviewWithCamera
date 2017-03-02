@@ -4,7 +4,7 @@
 ![ObjC](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
 
-Simple and handy solution Web sites and apps in an IOS webview for handeling to access the native camera from JS and receiving the image in JSON with base64coding.
+Simple and handy solution Web sites and apps in an IOS webview for handeling access the native camera from JS and receiving the image in JSON with base64encoding.
 
 
 ---
