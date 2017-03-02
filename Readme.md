@@ -1,6 +1,6 @@
 # IOS Web View with Native Camera Access
 
-![ObjC](https://img.shields.io/badge/Xcode-7.0%2B-brightgreen.svg)
+![ObjC](https://img.shields.io/badge/Xcode-8.0%2B-brightgreen.svg)
 ![ObjC](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
 
