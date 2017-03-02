@@ -1,26 +1,64 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fhp-pf-F0k">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="12i-pb-nx3">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fhp-pf-F0k" customClass="ViewController" customModule="IOS_Web_View_with_Native_Camera_Access" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="7VG-Up-L6z"/>
+                        <viewControllerLayoutGuide type="bottom" id="uPu-jJ-Z1q"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="Q2c-md-CWh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OM5-Yi-jV4">
+                                <rect key="frame" x="0.0" y="228" width="375" height="439"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAR-6H-fgb">
+                                <rect key="frame" x="85" y="197" width="205" height="30"/>
+                                <state key="normal" title="Start Camera from IOS Button"/>
+                                <connections>
+                                    <action selector="createFoto:" destination="fhp-pf-F0k" eventType="touchUpInside" id="WHD-39-5l7"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v1N-YS-Aif">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OM5-Yi-jV4" firstAttribute="top" secondItem="v1N-YS-Aif" secondAttribute="top" constant="228" id="1PA-qA-wRc"/>
+                            <constraint firstItem="vAR-6H-fgb" firstAttribute="top" secondItem="v1N-YS-Aif" secondAttribute="top" constant="197" id="29l-Sh-XxD"/>
+                            <constraint firstItem="vAR-6H-fgb" firstAttribute="centerX" secondItem="v1N-YS-Aif" secondAttribute="centerX" id="BCH-Ak-Xsh"/>
+                            <constraint firstItem="v1N-YS-Aif" firstAttribute="leading" secondItem="OM5-Yi-jV4" secondAttribute="leading" id="CPV-MX-anD"/>
+                            <constraint firstItem="vAR-6H-fgb" firstAttribute="top" secondItem="v1N-YS-Aif" secondAttribute="bottom" constant="8" symbolic="YES" id="DN9-rE-7oW"/>
+                            <constraint firstItem="v1N-YS-Aif" firstAttribute="leading" secondItem="Q2c-md-CWh" secondAttribute="leading" id="QYL-Yz-EY9"/>
+                            <constraint firstAttribute="trailing" secondItem="v1N-YS-Aif" secondAttribute="trailing" id="WRd-4R-LwV"/>
+                            <constraint firstItem="OM5-Yi-jV4" firstAttribute="centerX" secondItem="v1N-YS-Aif" secondAttribute="centerX" id="iN0-R8-egV"/>
+                            <constraint firstItem="OM5-Yi-jV4" firstAttribute="bottom" secondItem="uPu-jJ-Z1q" secondAttribute="top" id="vLj-ZW-tfW"/>
+                            <constraint firstItem="v1N-YS-Aif" firstAttribute="top" secondItem="Q2c-md-CWh" secondAttribute="top" id="zBn-fx-dvR"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createFoto" destination="vAR-6H-fgb" id="Xvm-ti-eYK"/>
+                        <outlet property="imageVIew" destination="v1N-YS-Aif" id="Wck-In-osv"/>
+                        <outlet property="webView" destination="OM5-Yi-jV4" id="oYh-kE-awH"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clP-od-jPo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135" y="125"/>
         </scene>
     </scenes>
 </document>

@@ -12,6 +12,9 @@
 		1B58FD681E46432C001271F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B58FD661E46432C001271F1 /* Main.storyboard */; };
 		1B58FD6A1E46432C001271F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B58FD691E46432C001271F1 /* Assets.xcassets */; };
 		1B58FD6D1E46432C001271F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B58FD6B1E46432C001271F1 /* LaunchScreen.storyboard */; };
+		1B58FD761E4643CF001271F1 /* WebViewBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58FD751E4643CF001271F1 /* WebViewBridge.swift */; };
+		1B58FD781E464474001271F1 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B58FD771E464474001271F1 /* UIImageExtension.swift */; };
+		1B58FD7A1E464527001271F1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 1B58FD791E464527001271F1 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		1B58FD691E46432C001271F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B58FD6C1E46432C001271F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B58FD6E1E46432C001271F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B58FD751E4643CF001271F1 /* WebViewBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewBridge.swift; sourceTree = "<group>"; };
+		1B58FD771E464474001271F1 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		1B58FD791E464527001271F1 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,25 @@
 		1B58FD611E46432C001271F1 /* IOS Web View with Native Camera Access */ = {
 			isa = PBXGroup;
 			children = (
+				1B58FD741E4643BB001271F1 /* Library */,
 				1B58FD621E46432C001271F1 /* AppDelegate.swift */,
 				1B58FD641E46432C001271F1 /* ViewController.swift */,
 				1B58FD661E46432C001271F1 /* Main.storyboard */,
 				1B58FD691E46432C001271F1 /* Assets.xcassets */,
 				1B58FD6B1E46432C001271F1 /* LaunchScreen.storyboard */,
 				1B58FD6E1E46432C001271F1 /* Info.plist */,
+				1B58FD791E464527001271F1 /* index.html */,
 			);
 			path = "IOS Web View with Native Camera Access";
+			sourceTree = "<group>";
+		};
+		1B58FD741E4643BB001271F1 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1B58FD751E4643CF001271F1 /* WebViewBridge.swift */,
+				1B58FD771E464474001271F1 /* UIImageExtension.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B58FD6D1E46432C001271F1 /* LaunchScreen.storyboard in Resources */,
+				1B58FD7A1E464527001271F1 /* index.html in Resources */,
 				1B58FD6A1E46432C001271F1 /* Assets.xcassets in Resources */,
 				1B58FD681E46432C001271F1 /* Main.storyboard in Resources */,
 			);
@@ -137,8 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B58FD761E4643CF001271F1 /* WebViewBridge.swift in Sources */,
 				1B58FD651E46432C001271F1 /* ViewController.swift in Sources */,
 				1B58FD631E46432C001271F1 /* AppDelegate.swift in Sources */,
+				1B58FD781E464474001271F1 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +282,7 @@
 				DEVELOPMENT_TEAM = 5APC8YM55T;
 				INFOPLIST_FILE = "IOS Web View with Native Camera Access/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brody-media.IOS-Web-View-with-Native-Camera-Access";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.brody-media.webview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -275,7 +295,7 @@
 				DEVELOPMENT_TEAM = 5APC8YM55T;
 				INFOPLIST_FILE = "IOS Web View with Native Camera Access/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.brody-media.IOS-Web-View-with-Native-Camera-Access";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.brody-media.webview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -300,6 +320,7 @@
 				1B58FD731E46432C001271F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

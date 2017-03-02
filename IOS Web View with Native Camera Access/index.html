@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <title>IOS Web View with Native Camera Access</title>
+        <style type='text/css'>
+            .container {
+                text-align: center;
+            }
+        h1 {
+            color: gray;
+            font-size: 24px;
+        }
+        button {
+            margin: 0 3px 10px;
+            font-size: 15px;
+        }
+        .logLine {
+            border-bottom: 1px solid #ccc;
+            padding: 4px 4px;
+            font-size: 12px;
+        }
+        </style>
+    </head>
+    <body>
+        <script>
+            window.log = (function(){
+                          var uniqueId = 1;
+                          function _log(message, data) {
+                          var logElem = document.getElementById("logContainer");
+                          var newElem = document.createElement("div");
+                          newElem.className = "logLine";
+                          if (data) {
+                          console.log(message + ":<br/>" + data);
+                          newElem.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data);
+                          }
+                          else {
+                          console.log(message);
+                          newElem.innerHTML = uniqueId++ + '. ' + message;
+                          }
+                          if (logElem.children.length) {
+                          logElem.insertBefore(newElem, logElem.children[0]);
+                          }
+                          else {
+                          logElem.appendChild(newElem);
+                          }
+                          }
+                          return {log: _log};
+                          })().log;
+                          
+                          window.onerror = function(err) {
+                              log("window.onerror: " + err);
+                          };
+        
+        function connectToWebViewBridge(callback) {
+            if (window.WebViewBridge) {
+                callback(WebViewBridge);
+            } else {
+                document.addEventListener('WebViewBridgeReady', function() {
+                                          callback(WebViewBridge);
+                                          }, false);
+            }
+        }
+        
+        connectToWebViewBridge(function(bridge) {
+                                    bridge.init(function(message, responseCallback) {
+                                                log('JS got a message', message);
+                                                var data = {
+                                                'JS Responds': 'Message received = )'
+                                                };
+                                                responseCallback(data);
+                                                });
+                                    
+                                    bridge.registerHandlerForSwift('alertReceivedParmas', function(data, responseCallback) {
+                                                                   log('Swift called alertPassinParmas with', JSON.stringify(data));
+                                                                   alert(JSON.stringify(data));
+                                                                   var responseData = {
+                                                                   'JS Responds': 'alert triggered'
+                                                                   };
+                                                                   responseCallback(responseData);
+                                                                   });
+                                    
+                                    window.testSendDataToSwift = function() {
+                                    bridge.sendDataToSwift('Say Hello Swiftly to Swift');
+                                    };
+                                    });
+                                    
+                                    function testSendDataToSwiftWithCallback() {
+                                        WebViewBridge.sendDataToSwift('CameraStart' , function(responseData) {
+                                                                           alert("got your response: " + JSON.stringify(responseData));
+                                                                           });
+                                    }
+        
+        
+        function startIOSCamera() {
+            WebViewBridge.callSwiftHandler("cameraStart",
+                                                {
+                                                "camera": "start"
+                                                });
+        }
+        </script>
+        
+        <div class="container">
+            <h1>IOS Web View</h1>
+            <h1>JavaScript Bridge</h1>
+            <h1>and Native Camera Access</h1>
+            <br/>
+            <button type="button" onclick="startIOSCamera()">Start Camera from HTML Button</button>
+            <br/>
+            <div id='logContainer'></div>
+        </div>
+    </body>
+</html>
